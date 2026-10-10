@@ -544,15 +544,34 @@ nav.nav-principal {
 /* ==========================================================================
    10. CONTACTO Y FORMULARIO
    ========================================================================== */
+/* Centra verticalmente los textos de contacto para igualar al formulario */
 .grid-contacto {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columnas (Texto e Info a la izquierda, Formulario a la derecha) */
-    gap: 50px;
-    align-items: center;
-    background: var(--blanco);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    background-color: #ffffff; /* Esto hace que el cuadro sea blanco */
+    padding: 50px; /* Espacio interno para que no quede pegado a los bordes */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombreado elegante */
+    
+    max-width: 1000px;
+    margin: 0 auto; 
+    align-items: center; 
+}
+
+/* Contenedor izquierdo: Centra los textos y la línea amarilla */
+.info-contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Alinea los elementos internos al centro horizontalmente */
+    height: 100%; 
+    align-self: center !important;
+    text-align: center; /* Centra el texto */
+}
+
+.info-contacto h2 {
+    margin-top: 0 !important;
 }
 
 .datos-empresa { margin-top: 30px; }
