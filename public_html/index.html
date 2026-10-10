@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Configuración básica del documento -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chaski Market - Calidad y Frescura</title>
+
+        <!-- Favicon: El icono que aparece en la pestaña del navegador -->
+        <link rel="icon" href="Imagenes/Logo/logo-icono.svg" type="image/svg+xml">
+
+        <!-- Fuentes de Google (Tipografía Poppins) -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <!-- FontAwesome: Librería para usar iconos (carrito, flechas, etc.) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+        <!-- Conexión con nuestro archivo de estilos CSS -->
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <!-- =========================================================
+                 BARRA DE NAVEGACIÓN (HEADER E-COMMERCE)
+                 ========================================================= -->
+        <nav>
+            <!-- 1. GRUPO IZQUIERDO (Logo + Botón Categorías juntos) -->
+            <div class="nav-grupo-izq">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+                        <img src="Imagenes/Logo/logo-icono.svg" alt="Icono Minimarket Express">
+                        <div class="logo-texto">
+                            Chaski <span class="texto-resaltado">Market</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Menú Desplegable de Categorías -->
+                <div class="dropdown">
+                    <a href="#" class="nav-enlace btn-categorias">
+                        <i class="fa-solid fa-bars"></i> Categorías
+                    </a>
+                    <div class="dropdown-contenido">
+                        <a href="abarrotes.html"><i class="fa-solid fa-wheat-awn"></i> Abarrotes</a>
+                        <a href="lacteos.html"><i class="fa-solid fa-cheese"></i> Lácteos y Embutidos</a>
+                        <a href="bebidas.html"><i class="fa-solid fa-bottle-water"></i> Bebidas y Licores</a>
+                        <a href="limpieza.html"><i class="fa-solid fa-spray-can-sparkles"></i> Limpieza del Hogar</a>
+                        <a href="frutas.html"><i class="fa-solid fa-apple-whole"></i> Frutas y Verduras</a>
+                        <a href="conservas.html"><i class="fa-solid fa-jar"></i> Conservas</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Barra de Búsqueda Central -->
+            <div class="buscador-nav">
+                <input type="text" placeholder="¿Qué estás buscando hoy?">
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <!-- 3. Iconos de Acción (Login y Carrito) -->
+            <div class="nav-acciones">
+                <a href="#" class="icono-accion" title="Iniciar Sesión / Mi Cuenta">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+
+                <!-- Carrito con indicador numérico (Badge) -->
+                <a href="#" class="icono-accion btn-carrito" title="Ver Carrito">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="contador-carrito">0</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- =========================================================
+             SECCIÓN PRINCIPAL / HERO (Etiqueta semántica <header>)
+             ========================================================= -->
+        <!-- Se usa <header> porque es la presentación inicial o portada -->
+        <header id="inicio" class="hero-section">
+            <div class="hero-contenido">
+                <span class="etiqueta-nuevo">Envíos rápidos a tu casa</span>
+                <h1>Frescura y calidad<br>a un clic de distancia</h1>
+                <p>En Chaski Market seleccionamos los mejores abarrotes, lácteos y productos del hogar para ti. Compra fácil, rápido y seguro.</p>
+                <a href="#categorias" class="btn-principal">Descubrir Productos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- CARRUSEL EN LA COLUMNA DERECHA DEL HERO -->
+            <div class="hero-imagen">
+                <div class="carrusel">
+                    <div class="carrusel-imagenes">
+                        <div class="imagen"><img src="Imagenes/Imagenes_Carrucel/Atencion al cliente.jpg" alt="Atencion al cliente"></div>
+                        <div class="imagen"><img src="Imagenes/Imagenes_Carrucel/Barrotes y frescura.jpg" alt="Barrotes y frescura"></div>
+                        <div class="imagen"><img src="Imagenes/Imagenes_Carrucel/Conservante variados.jpg" alt="Conservante variados"></div>                    
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- =========================================================
+             SECCIÓN DE CATEGORÍAS (Etiqueta semántica <section>)
+             ========================================================= -->
+        <!-- Se agrupa en <section> porque trata un tema específico de la página -->
+        <section id="categorias" class="container padding-seccion">
+            <div class="text-center">
+                <h2 class="titulo-seccion">¿Qué estás buscando hoy?</h2>
+                <p class="parrafo">Explora nuestras secciones principales.</p>
+            </div>
+
+            <!-- Contenedor que usa CSS Grid para organizar las cajas en columnas -->
+            <div class="grid-categorias">
+                <a href="abarrotes.html" class="card-categoria">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                    <h3>Abarrotes</h3>
+                </a>
+                <a href="Abarrotes.html" class="card-categoria">
+                    <i class="fa-solid fa-cheese"></i>
+                    <h3>Lácteos y Embutidos</h3>
+                </a>
+                <a href="bebidas.html" class="card-categoria">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    <h3>Bebidas y Licores</h3>
+                </a>
+                <a href="limpieza.html" class="card-categoria">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                    <h3>Limpieza del Hogar</h3>
+                </a>
+                <a href="frutas.html" class="card-categoria">
+                    <i class="fa-solid fa-apple-whole"></i>
+                    <h3>Frutas y Verduras</h3>
+                </a>
+                <a href="conservas.html" class="card-categoria">
+                    <i class="fa-solid fa-jar"></i>
+                    <h3>Conservas</h3>
+                </a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SECCIÓN DE PRODUCTOS DESTACADOS
+             ========================================================= -->
+        <section id="destacados" class="container padding-seccion">
+            <div class="text-center">
+                <h2 class="titulo-seccion">Productos Destacados</h2>
+                <p class="parrafo">Nuestras mejores ofertas para tu hogar esta semana.</p>
+            </div>
+
+            <!-- Grid para organizar las tarjetas de productos -->
+            <div class="grid-productos">
+
+                <!-- Producto Destacado 1 -->
+                <div class="tarjeta-producto">
+                    <!-- Etiqueta de oferta superpuesta con CSS position absolute -->
+                    <div class="etiqueta-oferta">Oferta</div>
+                    <div class="contenedor-img-producto">
+                        <img src="Imagenes/Productos/Arroz-costeño.jpg" alt=""/>
+                    </div>
+                    <div class="info-producto">
+                        <p class="marca-producto">COSTEÑO</p>
+                        <h3>Arroz Extra Superior</h3>
+                        <p class="presentacion">Bolsa x 5 kg</p>
+                        <div class="contenedor-precios">
+                            <span class="precio">S/ 19.50</span>
+                            <span class="precio-tachado">S/ 21.00</span>
+                        </div>
+
+                        <!-- Simulación visual de agregar cantidades -->
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad">-</button>
+                            <!-- 'readonly' evita que el usuario escriba letras en el campo -->
+                            <input type="text" value="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad">+</button>
+                        </div>
+                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                    </div>
+                </div>
+
+                <!-- Producto Destacado 2 -->
+                <div class="tarjeta-producto">
+                    <div class="etiqueta-oferta">-15%</div>
+                    <div class="contenedor-img-producto">
+                        <img src="Imagenes/Productos/Aceite_Primor.jpg" alt=""/>
+                    </div>
+                    <div class="info-producto">
+                        <p class="marca-producto">PRIMOR</p>
+                        <h3>Aceite Vegetal Clásico</h3>
+                        <p class="presentacion">Botella 900 ml</p>
+                        <div class="contenedor-precios">
+                            <span class="precio">S/ 7.80</span>
+                            <span class="precio-tachado">S/ 9.20</span>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad">-</button>
+                            <input type="text" value="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad">+</button>
+                        </div>
+                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                    </div>
+                </div>
+
+                <!-- Producto Destacado 3 (Sin oferta) -->
+                <div class="tarjeta-producto">
+                    <div class="contenedor-img-producto">
+                        <img src="Imagenes/Productos/Ace.jpg" alt=""/>
+                    </div>
+                    <div class="info-producto">
+                        <p class="marca-producto">ACE</p>
+                        <h3>Detergente en Polvo Floral</h3>
+                        <p class="presentacion">Bolsa x 800 g</p>
+                        <div class="contenedor-precios">
+                            <span class="precio">S/ 8.20</span>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad">-</button>
+                            <input type="text" value="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad">+</button>
+                        </div>
+                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                    </div>
+                </div>
+
+                <!-- Producto Destacado 4 -->
+                <div class="tarjeta-producto">
+                    <div class="etiqueta-oferta">-20%</div>
+                    <div class="contenedor-img-producto">
+                        <img src="Imagenes/Productos/Laive-queso.jpg" alt=""/>
+                    </div>
+                    <div class="info-producto">
+                        <p class="marca-producto">LAIVE</p>
+                        <h3>Queso Edam en Láminas</h3>
+                        <p class="presentacion">Paquete 200 g</p>
+                        <div class="contenedor-precios">
+                            <span class="precio">S/ 9.50</span>
+                            <span class="precio-tachado">S/ 11.90</span>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad">-</button>
+                            <input type="text" value="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad">+</button>
+                        </div>
+                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SECCIÓN SOBRE NOSOTROS (Misión, Visión, Valores)
+             ========================================================= -->
+        <section id="nosotros" class="seccion-nosotros padding-seccion">
+            <div class="container text-center">
+                <h2 class="titulo-seccion">Nuestra Esencia</h2>
+                <p class="parrafo" style="max-width: 600px; margin: 0 auto 40px;">Conoce lo que nos motiva todos los días a brindarte el mejor servicio en tu hogar.</p>
+
+                <div class="grid-3-columnas">
+                    <!-- Tarjeta: Misión -->
+                    <div class="card-valor">
+                        <div class="icono-valor"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>Nuestra Misión</h3>
+                        <p>Proveer alimentos y productos del hogar de manera rápida, eficiente y cercana, facilitando el día a día de nuestros clientes.</p>
+                    </div>
+                    <!-- Tarjeta: Visión -->
+                    <div class="card-valor">
+                        <div class="icono-valor"><i class="fa-solid fa-eye"></i></div>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la red de minimarkets preferida y más confiable de la ciudad, destacando por nuestra atención y calidad superior.</p>
+                    </div>
+                    <!-- Tarjeta: Valores -->
+                    <div class="card-valor">
+                        <div class="icono-valor"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <h3>Valores Institucionales</h3>
+                        <ul class="lista-check">
+                            <li><i class="fa-solid fa-check"></i> <strong>Calidad:</strong> Selección cuidadosa.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Puntualidad:</strong> Entregas sin demora.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Empatía:</strong> Cuidamos tu economía.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SECCIÓN FORMULARIO DE CONTACTO
+             ========================================================= -->
+        <section id="contactenos" class="container padding-seccion">
+            <div class="grid-contacto">
+                <!-- Información de contacto a la izquierda -->
+                <div class="info-contacto">
+                    <h2 class="titulo-seccion" style="text-align: left;">Hablemos</h2>
+                    <p class="parrafo" style="text-align: left;">¿Tienes algún pedido especial o dudas sobre nuestros envíos? Escríbenos y te responderemos de inmediato.</p>
+                    <div class="datos-empresa">
+                        <p><i class="fa-solid fa-location-dot"></i> Av. Principal N° 456, Lima</p>
+                        <p><i class="fa-brands fa-whatsapp"></i> +51 987 654 321</p>
+                        <p><i class="fa-solid fa-envelope"></i> ventas@minimarketexpress.com</p>
+                    </div>
+                </div>
+
+                <!-- Formulario a la derecha -->
+                <form class="formulario-moderno">
+                    <div class="grupo-input">
+                        <label>Nombre Completo</label>
+                        <!-- 'required' hace que el formulario no se envíe si está vacío -->
+                        <input type="text" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Teléfono / WhatsApp</label>
+                        <input type="tel" placeholder="Ej. 987654321" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Mensaje o Pedido</label>
+                        <textarea rows="4" placeholder="¿En qué te podemos ayudar?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-principal w-100">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PIE DE PÁGINA (Etiqueta semántica <footer>)
+             ========================================================= -->
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <img src="Imagenes/Logo/logo-horizontal-blanco.svg" alt="Logo" style="height: 35px; margin-bottom: 15px;">
+                    <p>Calidad y frescura cerca de ti.</p>
+                </div>
+                <div class="footer-social">
+                    <!-- target="_blank" abre el enlace en una pestaña nueva -->
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Chaski Market. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </body>
+</html>
