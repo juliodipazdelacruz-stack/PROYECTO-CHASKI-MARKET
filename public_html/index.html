@@ -21,58 +21,59 @@
     <body>
 
         <!-- =========================================================
-                 BARRA DE NAVEGACIÓN (HEADER E-COMMERCE)
-                 ========================================================= -->
-        <nav>
-            <!-- 1. GRUPO IZQUIERDO (Logo + Botón Categorías juntos) -->
-            <div class="nav-grupo-izq">
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
-                        <img src="Imagenes/Logo/logo-icono.svg" alt="Icono Minimarket Express">
-                        <div class="logo-texto">
-                            Chaski <span class="texto-resaltado">Market</span>
-                        </div>
-                    </a>
+         BARRA DE NAVEGACIÓN (HEADER E-COMMERCE)
+         ========================================================= -->
+    <nav class="nav-principal">
+        <!-- 1. Menú Hamburguesa (Solo celular) -->
+        <button class="menu-hamburguesa-movil">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- 2. Logo -->
+        <div class="logo">
+            <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+                <!-- Volvemos a tu imagen SVG original -->
+                <img src="Imagenes/Logo/logo-icono.svg" alt="Icono Chaski Market">
+                <div class="logo-texto">
+                    Chaski <span class="texto-resaltado">Market</span>
                 </div>
+            </a>
+        </div>
 
-                <!-- Menú Desplegable de Categorías -->
-                <div class="dropdown">
-                    <a href="#" class="nav-enlace btn-categorias">
-                        <i class="fa-solid fa-bars"></i> Categorías
-                    </a>
-                    <div class="dropdown-contenido">
-                        <a href="abarrotes.html"><i class="fa-solid fa-wheat-awn"></i> Abarrotes</a>
-                        <a href="lacteos.html"><i class="fa-solid fa-cheese"></i> Lácteos y Embutidos</a>
-                        <a href="bebidas.html"><i class="fa-solid fa-bottle-water"></i> Bebidas y Licores</a>
-                        <a href="limpieza.html"><i class="fa-solid fa-spray-can-sparkles"></i> Limpieza del Hogar</a>
-                        <a href="frutas.html"><i class="fa-solid fa-apple-whole"></i> Frutas y Verduras</a>
-                        <a href="conservas.html"><i class="fa-solid fa-jar"></i> Conservas</a>
-                    </div>
-                </div>
+        <!-- 3. Botón Categorías (Solo PC) -->
+        <div class="dropdown">
+            <a href="#" class="nav-enlace btn-categorias">
+                <i class="fa-solid fa-bars"></i> Categorías
+            </a>
+            <div class="dropdown-contenido">
+                <a href="abarrotes.html"><i class="fa-solid fa-wheat-awn"></i> Abarrotes</a>
+                <a href="lacteos.html"><i class="fa-solid fa-cheese"></i> Lácteos y Embutidos</a>
+                <a href="bebidas.html"><i class="fa-solid fa-bottle-water"></i> Bebidas y Licores</a>
+                <a href="limpieza.html"><i class="fa-solid fa-spray-can-sparkles"></i> Limpieza del Hogar</a>
+                <a href="frutas.html"><i class="fa-solid fa-apple-whole"></i> Frutas y Verduras</a>
+                <a href="conservas.html"><i class="fa-solid fa-jar"></i> Conservas</a>
             </div>
+        </div>
 
-            <!-- 2. Barra de Búsqueda Central -->
-            <div class="buscador-nav">
-                <input type="text" placeholder="¿Qué estás buscando hoy?">
-                <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+        <!-- 4. Barra de Búsqueda -->
+        <div class="buscador-nav">
+            <input type="text" placeholder="¿Qué estás buscando hoy?">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
 
-            <!-- 3. Iconos de Acción (Login y Carrito) -->
-            <div class="nav-acciones">
-                <a href="#" class="icono-accion" title="Iniciar Sesión / Mi Cuenta">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Mi Cuenta</span>
-                </a>
-
-                <!-- Carrito con indicador numérico (Badge) -->
-                <a href="#" class="icono-accion btn-carrito" title="Ver Carrito">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="contador-carrito">0</span>
-                </a>
-            </div>
-        </nav>
-
+        <!-- 5. Iconos de Acción (Login y Carrito) -->
+        <div class="nav-acciones">
+            <a href="#" class="icono-accion" title="Iniciar Sesión / Mi Cuenta">
+                <i class="fa-regular fa-user"></i>
+                <span class="texto-accion-escritorio">Mi Cuenta</span>
+            </a>
+            
+            <a href="#" class="icono-accion btn-carrito" title="Ver Carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="contador-carrito">0</span>
+            </a>
+        </div>
+    </nav>
         <!-- =========================================================
              SECCIÓN PRINCIPAL / HERO (Etiqueta semántica <header>)
              ========================================================= -->
