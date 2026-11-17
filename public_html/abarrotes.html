@@ -17,12 +17,9 @@
 </head>
 <body>
     
-    <!-- =========================================================
-         BARRA DE NAVEGACIÓN DEFINITIVA (Responsiva)
-         ========================================================= -->
     <nav class="nav-principal">
-        <!-- 1. Menú Hamburguesa (Solo celular) -->
-        <button class="menu-hamburguesa-movil">
+        <!-- 1. Menú Hamburguesa (Celular) con la función JS requerida -->
+        <button class="menu-hamburguesa-movil" onclick="accion()">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -36,9 +33,9 @@
             </a>
         </div>
 
-        <!-- 3. Botón Categorías (Solo PC) -->
-        <div class="dropdown">
-            <a href="#" class="nav-enlace btn-categorias">
+        <!-- 3. Botón Categorías (Con clase nav-enlace para el toggle responsivo) -->
+        <div class="dropdown nav-enlace">
+            <a href="#" class="btn-categorias">
                 <i class="fa-solid fa-bars"></i> Categorías
             </a>
             <div class="dropdown-contenido">
@@ -51,30 +48,26 @@
             </div>
         </div>
 
-        <!-- 4. Barra de Búsqueda -->
+        <!-- 4. Barra de Búsqueda con ID para el filtrado en vivo -->
         <div class="buscador-nav">
-            <input type="text" placeholder="¿Qué estás buscando hoy?">
+            <input type="text" id="searchInput" placeholder="¿Qué estás buscando hoy?">
             <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-        <!-- 5. Iconos de Acción (Login y Carrito) -->
+        <!-- 5. Iconos de Acción (Login y Carrito con contador dinámico) -->
         <div class="nav-acciones">
-            <a href="#" class="icono-accion" title="Iniciar Sesión / Mi Cuenta">
+            <a href="#" class="icono-accion nav-enlace" title="Iniciar Sesión / Mi Cuenta">
                 <i class="fa-regular fa-user"></i>
                 <span class="texto-accion-escritorio">Mi Cuenta</span>
             </a>
             
             <a href="#" class="icono-accion btn-carrito" title="Ver Carrito">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span class="contador-carrito">0</span>
+                <span class="contador-carrito" id="cartCount">0</span>
             </a>
         </div>
     </nav>
 
-    <!-- =========================================================
-         CONTENIDO PRINCIPAL: SIDEBAR + PRODUCTOS
-         ========================================================= -->
-    <!-- Usamos layout-categorias para dividir la pantalla en 2 columnas -->
     <main class="container padding-seccion layout-categorias">
         
         <!-- COLUMNA IZQUIERDA: MENÚ LATERAL FIJO -->
@@ -99,13 +92,13 @@
             <p class="parrafo">Los insumos esenciales y de primera necesidad para tu cocina diaria.</p>
             
             <!-- Grid de las tarjetas de productos -->
-            <div class="grid-productos">
+            <div class="grid-productos" id="productGrid">
                 
                 <!-- Producto 1: Con Oferta -->
                 <div class="tarjeta-producto">
                     <div class="etiqueta-oferta">Oferta</div>
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/Arroz-costeño.jpg" alt=""/>
+                        <img src="Imagenes/Productos/Arroz-costeño.jpg" alt="Arroz Extra Superior"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">COSTEÑO</p>
@@ -116,18 +109,18 @@
                             <span class="precio-tachado">S/ 21.00</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
 
                 <!-- Producto 2: Precio Normal -->
                 <div class="tarjeta-producto">
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/Azucardulfina.jpg" alt=""/>
+                        <img src="Imagenes/Productos/Azucardulfina.jpg" alt="Azúcar Rubia Doméstica"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">DULFINA</p>
@@ -137,11 +130,11 @@
                             <span class="precio">S/ 4.20</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
 
@@ -149,7 +142,7 @@
                 <div class="tarjeta-producto">
                     <div class="etiqueta-oferta">-15%</div>
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/Aceite_Primor.jpg" alt=""/>
+                        <img src="Imagenes/Productos/Aceite_Primor.jpg" alt="Aceite Vegetal Clásico"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">PRIMOR</p>
@@ -160,18 +153,18 @@
                             <span class="precio-tachado">S/ 9.20</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
 
                 <!-- Producto 4: Precio Normal -->
                 <div class="tarjeta-producto">
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/PASTA_DONVICTORIO.jpg" alt=""/>
+                        <img src="Imagenes/Productos/PASTA_DONVICTORIO.jpg" alt="Fideos Tallarín Grueso"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">DON VITTORIO</p>
@@ -181,11 +174,11 @@
                             <span class="precio">S/ 2.90</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
 
@@ -195,7 +188,7 @@
     </main>
 
     <!-- =========================================================
-         PIE DE PÁGINA (FOOTER)
+         PIE DE PÁGINA (FOOTER) CON REDES SOCIALES
          ========================================================= -->
     <footer>
         <div class="container footer-grid">
@@ -204,9 +197,9 @@
                 <p>Calidad y frescura cerca de ti.</p>
             </div>
             <div class="footer-social">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/51987654321" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -214,5 +207,7 @@
         </div>
     </footer>
 
+    <!-- Archivo JavaScript Externo -->
+    <script src="Js/script.js" type="text/javascript"></script>
 </body>
 </html>

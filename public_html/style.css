@@ -1,51 +1,44 @@
 /* ==========================================================================
    1. VARIABLES DE COLOR (Paleta de la marca)
    ========================================================================== */
-/* :root almacena variables globales que podemos reusar en todo el código. 
-   Si el cliente quiere cambiar un color, solo lo cambiamos aquí y se actualiza en toda la web. */
 :root {
     --azul-andino: #1B3A4B;       /* Color principal: Header, footer, títulos */
-    --crema-andina: #F5EFE3;      /* Color de fondo suave para evitar el blanco puro que cansa la vista */
-    --rojo-chasqui: #C1272D;      /* Color de acento: Botones de compra, precios, etiquetas de oferta */
-    --oro-maiz: #F2B134;          /* Color secundario: Iconos, efectos al pasar el mouse (hover) */
-    --verde-coca: #4C7A5E;        /* Color semántico: Checkmarks, etiquetas de "nuevo" o "fresco" */
-    --carbon-calido: #2B2320;     /* Color de texto general (más suave que el negro puro #000) */
+    --crema-andina: #F5EFE3;      /* Color de fondo suave */
+    --rojo-chasqui: #C1272D;      /* Color de acento: Botones de compra, precios */
+    --oro-maiz: #F2B134;          /* Color secundario: Iconos, hover */
+    --verde-coca: #4C7A5E;        /* Color semántico: Etiquetas de oferta/descuento */
+    --carbon-calido: #2B2320;     /* Color de texto general */
     --blanco: #FFFFFF;            /* Fondos de las tarjetas de productos */
 }
 
 /* ==========================================================================
    2. RESETEO Y ESTILOS BASE
    ========================================================================== */
-/* El asterisco (*) selecciona todos los elementos de la web.
-   Quitamos márgenes y paddings por defecto de los navegadores. */
 * { 
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box; /* Asegura que los bordes y paddings no agranden las cajas */
+    box-sizing: border-box; 
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Tipografía moderna y sin serifa */
+    font-family: 'Poppins', sans-serif;
     background-color: var(--crema-andina);
     color: var(--carbon-calido);
-    line-height: 1.6; /* Interlineado para mejor lectura */
+    line-height: 1.6;
 }
 
-/* ==========================================================================
-   3. CLASES UTILITARIAS (Para reusar en cualquier parte)
-   ========================================================================== */
 .container { 
     width: 90%; 
-    max-width: 1200px; /* Evita que la web se estire demasiado en pantallas gigantes */
-    margin: 0 auto; /* Centra el contenedor automáticamente */
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
 .text-center { text-align: center; }
-.padding-seccion { padding: 60px 0; } /* Espaciado estándar arriba y abajo de cada sección */
+.padding-seccion { padding: 60px 0; }
 .w-100 { width: 100%; text-align: center; }
 
 /* ==========================================================================
-   4. ENCABEZADO Y NAVEGACIÓN (HEADER E-COMMERCE)
+   3. ENCABEZADO Y NAVEGACIÓN (HEADER E-COMMERCE)
    ========================================================================== */
 nav.nav-principal {
     background-color: var(--azul-andino);
@@ -59,7 +52,6 @@ nav.nav-principal {
     gap: 20px;
 }
 
-/* El menú hamburguesa móvil se oculta en PC */
 .menu-hamburguesa-movil {
     display: none;
     background: transparent;
@@ -69,19 +61,23 @@ nav.nav-principal {
     cursor: pointer;
 }
 
-/* --- LOGO COMO ENLACE --- */
 .logo { user-select: none; }
+.logo-link {
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    text-decoration: none;
+}
 .logo img { height: 40px; width: auto; }
 .logo-texto { 
-    font-weight: 900; /* Letra mucho más gruesa como en tu captura */
-    font-size: 1.5rem; /* Un poco más grande */
+    font-weight: 900; 
+    font-size: 1.5rem; 
     color: var(--blanco); 
     line-height: 1.1; 
-    letter-spacing: -0.5px; /* Junta las letras un poquito */
+    letter-spacing: -0.5px; 
 }
 .texto-resaltado { color: var(--oro-maiz); }
 
-/* --- BARRA DE BÚSQUEDA CENTRAL --- */
 .buscador-nav {
     flex-grow: 1; 
     height: 40px;
@@ -95,14 +91,12 @@ nav.nav-principal {
 .buscador-nav button { background-color: var(--oro-maiz); color: var(--carbon-calido); border: none; padding: 0 18px; cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s; }
 .buscador-nav button:hover { background-color: #e5a427; }
 
-/* --- ICONOS DE ACCIÓN --- */
 .nav-acciones { display: flex; align-items: center; gap: 25px; margin-left: auto; }
 .icono-accion { display: flex; flex-direction: column; align-items: center; color: var(--blanco); text-decoration: none; font-size: 1.3rem; transition: color 0.3s; position: relative; }
 .texto-accion-escritorio { font-size: 0.75rem; font-weight: 400; margin-top: 4px; }
 .icono-accion:hover { color: var(--oro-maiz); }
 .contador-carrito { position: absolute; top: -8px; right: -10px; background-color: var(--rojo-chasqui); color: var(--blanco); font-size: 0.7rem !important; font-weight: 700 !important; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid var(--azul-andino); }
 
-/* --- MENÚ DESPLEGABLE --- */
 .dropdown { position: relative; display: inline-block; flex-shrink: 0; }
 .btn-categorias { display: flex; align-items: center; gap: 8px; background-color: var(--blanco); color: var(--azul-andino) !important; border-radius: 8px; padding: 8px 15px; font-weight: 600; text-decoration: none; border: 1px solid #e0e0e0; }
 .dropdown-contenido { display: none; position: absolute; background-color: var(--blanco); min-width: 240px; box-shadow: 0px 8px 20px rgba(0,0,0,0.15); border-radius: 10px; top: 100%; left: 0; z-index: 1000; overflow: hidden; }
@@ -114,25 +108,25 @@ nav.nav-principal {
 .dropdown-contenido a:hover i { color: var(--rojo-chasqui); }
 
 /* ==========================================================================
-   5. PORTADA PRINCIPAL (HERO SECTION)
+   4. PORTADA PRINCIPAL (HOME)
    ========================================================================== */
-.hero-section {
+.portada-principal {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide la pantalla en 2 columnas iguales */
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 40px;
     padding: 60px 5%;
     background: linear-gradient(135deg, var(--crema-andina) 0%, #e8dec7 100%);
 }
 
-.hero-contenido h1 {
-    font-size: 3rem;
+.portada-contenido h1 {
+    font-size: 2.8rem;
     color: var(--azul-andino);
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
-.hero-contenido p {
+.portada-contenido p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     color: var(--carbon-calido);
@@ -140,12 +134,12 @@ nav.nav-principal {
 
 .etiqueta-nuevo {
     display: inline-block;
-    background-color: var(--verde-coca);
-    color: var(--blanco);
-    padding: 5px 15px;
+    background-color: var(--oro-maiz);
+    color: var(--carbon-calido);
+    font-weight: 600;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 600;
     margin-bottom: 15px;
 }
 
@@ -157,71 +151,220 @@ nav.nav-principal {
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.btn-principal:hover { 
-    transform: translateY(-3px); /* Efecto de elevarse ligeramente */
-    box-shadow: 0 8px 20px rgba(193, 39, 45, 0.3); 
+.btn-principal:hover {
+    background-color: #a01f24;
 }
 
-/* ==================== CARRUSEL DE IMÁGENES ==================== */
-.hero-imagen {
+.carrusel {
     width: 100%;
-}
-
-.hero-imagen .carrusel {
-    margin: 0;
-    width: 100%;
-    max-height: 420px;
     overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.hero-imagen .carrusel-imagenes {
+.carrusel-imagenes {
     display: flex;
     width: 300%;
-    animation: cambio 12s infinite ease-in-out;
+    animation: carruselAnimacion 12s infinite;
 }
 
-.hero-imagen .imagen {
-    flex: 0 0 33.333%;
-    width: 100%;
+.carrusel-imagenes .imagen {
+    width: 33.333%;
 }
 
-.hero-imagen .imagen img {
+.carrusel-imagenes img {
     width: 100%;
-    height: 420px;
+    height: 350px;
     object-fit: cover;
     display: block;
 }
 
-@keyframes cambio {
-    0%   { transform: translateX(0%); }
-    30%  { transform: translateX(0%); }
-    33%  { transform: translateX(-33.333%); }
-    63%  { transform: translateX(-33.333%); }
-    66%  { transform: translateX(-66.666%); }
-    96%  { transform: translateX(-66.666%); }
-    100% { transform: translateX(0%); }
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
-    .hero-imagen .carrusel,
-    .hero-imagen .imagen img {
-        max-height: 260px;
-        height: 260px;
-    }
+@keyframes carruselAnimacion {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(0); }
+    35% { transform: translateX(-33.333%); }
+    65% { transform: translateX(-33.333%); }
+    70% { transform: translateX(-66.666%); }
+    95% { transform: translateX(-66.666%); }
+    100% { transform: translateX(0); }
 }
 
 /* ==========================================================================
-   6. TÍTULOS Y TARJETAS DE CATEGORÍA (INICIO)
+   5. SECCIÓN DE CATEGORÍAS RÁPIDAS (Centrado perfecto de iconos)
+   ========================================================================== */
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card-categoria {
+    background: var(--blanco);
+    padding: 25px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--carbon-calido);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.card-categoria i {
+    font-size: 2.2rem;
+    color: var(--azul-andino);
+    transition: color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-categoria h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card-categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    color: var(--rojo-chasqui);
+}
+
+.card-categoria:hover i {
+    color: var(--rojo-chasqui);
+}
+
+/* ==========================================================================
+   6. NOSOTROS Y VALORES (Iconos centrados)
+   ========================================================================== */
+.subtitulo-seccion {
+    margin-bottom: 40px;
+}
+
+.grid-3-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card-valor {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono-valor {
+    font-size: 2.2rem;
+    color: var(--oro-maiz);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-valor h3 {
+    color: var(--azul-andino);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.lista-check {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.lista-check li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista-check i {
+    color: var(--verde-coca);
+}
+
+/* ==========================================================================
+   7. LAYOUT PÁGINAS INTERNAS (SIDEBAR + CATÁLOGO)
+   ========================================================================== */
+.layout-categorias {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.sidebar-categorias {
+    background: var(--blanco);
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 90px;
+}
+
+.sidebar-categorias h3 {
+    color: var(--azul-andino);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--crema-andina);
+    padding-bottom: 10px;
+}
+
+.lista-categorias { 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.lista-categorias li { 
+    margin-bottom: 8px; 
+}
+
+.lista-categorias a {
+    text-decoration: none; 
+    color: var(--carbon-calido);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.lista-categorias a:hover, 
+.lista-categorias a.activo {
+    background: var(--crema-andina);
+    color: var(--rojo-chasqui);
+}
+
+.lista-categorias a i {
+    color: var(--oro-maiz);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   8. TARJETAS DE PRODUCTO Y CONTROLES
    ========================================================================== */
 .titulo-seccion {
     font-size: 2.2rem;
@@ -230,7 +373,7 @@ nav.nav-principal {
 }
 
 .titulo-seccion::after {
-    content: ""; /* Pseudo-elemento para crear la rayita dorada debajo del título */
+    content: "";
     display: block;
     width: 60px;
     height: 4px;
@@ -238,45 +381,6 @@ nav.nav-principal {
     margin: 10px auto 0;
 }
 
-.grid-categorias {
-    display: grid;
-    /* auto-fit asegura que las columnas se adapten al espacio (Responsive automático sin Media Queries) */
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.card-categoria {
-    background: var(--blanco);
-    padding: 30px 20px;
-    border-radius: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--azul-andino);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.card-categoria i {
-    font-size: 2.5rem;
-    color: var(--oro-maiz);
-    margin-bottom: 15px;
-    transition: transform 0.3s;
-}
-
-.card-categoria h3 { font-size: 1rem; font-weight: 600; }
-
-.card-categoria:hover {
-    border-color: var(--oro-maiz);
-    transform: translateY(-5px);
-}
-
-.card-categoria:hover i { transform: scale(1.1); } /* Agranda el ícono al pasar el mouse */
-
-/* ==========================================================================
-   7. CATÁLOGO: TARJETAS DE PRODUCTO Y CONTROLES (+/-)
-   ========================================================================== */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
@@ -291,7 +395,7 @@ nav.nav-principal {
     overflow: hidden;
     display: flex;
     flex-direction: column; 
-    position: relative; /* Obligatorio para que la "Etiqueta Oferta" se posicione encima */
+    position: relative;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -300,7 +404,6 @@ nav.nav-principal {
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* Etiqueta flotante de Oferta */
 .etiqueta-oferta {
     position: absolute;
     top: 15px;
@@ -314,7 +417,10 @@ nav.nav-principal {
     z-index: 10;
 }
 
-/* Contenedor fotográfico del producto */
+.etiqueta-verde {
+    background-color: var(--verde-coca) !important;
+}
+
 .contenedor-img-producto {
     width: 100%;
     height: 220px; 
@@ -328,14 +434,14 @@ nav.nav-principal {
 .contenedor-img-producto img { 
     max-width: 100%; 
     max-height: 100%; 
-    object-fit: contain; /* Ajusta la imagen sin recortarla, ideal para productos */
+    object-fit: contain; 
 }
 
 .info-producto { 
     padding: 0 20px 20px 20px; 
     display: flex; 
     flex-direction: column; 
-    flex-grow: 1; /* Permite que esta área ocupe todo el espacio sobrante hacia abajo */
+    flex-grow: 1; 
 }
 
 .marca-producto {
@@ -359,13 +465,12 @@ nav.nav-principal {
     margin-bottom: 12px; 
 }
 
-/* Precios */
 .contenedor-precios {
     display: flex;
-    align-items: baseline; /* Alinea los textos por su base, sin importar si uno es más grande */
+    align-items: baseline;
     gap: 8px;
     margin-bottom: 15px;
-    margin-top: auto; /* Empuja siempre los precios y botones hacia el final de la tarjeta */
+    margin-top: auto;
 }
 
 .precio { 
@@ -377,10 +482,9 @@ nav.nav-principal {
 .precio-tachado {
     font-size: 0.9rem;
     color: #aaa;
-    text-decoration: line-through; /* Crea el efecto de precio antiguo tachado */
+    text-decoration: line-through;
 }
 
-/* Controles numéricos (+ / -) */
 .controles-cantidad {
     display: flex;
     justify-content: center;
@@ -424,7 +528,6 @@ nav.nav-principal {
     outline: none;
 }
 
-/* Botón Agregar */
 .btn-rojo {
     background: var(--blanco); 
     color: var(--azul-andino); 
@@ -448,170 +551,91 @@ nav.nav-principal {
 }
 
 /* ==========================================================================
-   8. LAYOUT CATEGORÍAS (PÁGINAS INTERNAS CON MENÚ LATERAL)
+   9. SECCIÓN DE CONTACTO Y FORMULARIO (Dos columnas alineadas)
    ========================================================================== */
-.layout-categorias {
-    display: grid;
-    grid-template-columns: 260px 1fr; /* Columna izquierda fija para menú, derecha adaptable para productos */
-    gap: 30px;
-    align-items: start;
-}
-
-.sidebar-categorias {
-    background: var(--blanco);
-    padding: 25px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    position: sticky; /* Hace que el menú lateral baje con el usuario al hacer scroll */
-    top: 90px; 
-}
-
-.sidebar-categorias h3 {
-    color: var(--azul-andino);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    border-bottom: 2px solid var(--crema-andina);
-    padding-bottom: 10px;
-}
-
-.lista-categorias { list-style: none; }
-.lista-categorias li { margin-bottom: 8px; }
-
-.lista-categorias a {
-    text-decoration: none;
-    color: var(--carbon-calido);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-/* .activo resalta visualmente en qué categoría se encuentra el usuario actualmente */
-.lista-categorias a:hover, 
-.lista-categorias a.activo {
-    background: var(--crema-andina);
-    color: var(--rojo-chasqui);
-}
-
-.lista-categorias a i {
-    color: var(--oro-maiz);
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
-}
-
-/* ==========================================================================
-   9. SECCIÓN SOBRE NOSOTROS Y VALORES
-   ========================================================================== */
-.seccion-nosotros { background-color: var(--blanco); }
-
-.grid-3-columnas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas del mismo ancho */
-    gap: 30px;
-}
-
-.card-valor {
-    padding: 30px;
-    background: var(--crema-andina);
-    border-radius: 20px;
-    transition: transform 0.3s;
-}
-
-.card-valor:hover { transform: translateY(-5px); }
-
-.icono-valor {
-    width: 70px; height: 70px;
-    background: var(--azul-andino);
-    color: var(--oro-maiz);
-    border-radius: 50%;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    font-size: 1.8rem;
-    margin: 0 auto 20px;
-}
-
-.card-valor h3 { color: var(--azul-andino); margin-bottom: 15px; }
-
-.lista-check { list-style: none; text-align: left; }
-.lista-check li { margin-bottom: 10px; }
-.lista-check i { color: var(--verde-coca); margin-right: 8px; font-size: 1.1rem; }
-
-/* ==========================================================================
-   10. CONTACTO Y FORMULARIO
-   ========================================================================== */
-/* Centra verticalmente los textos de contacto para igualar al formulario */
 .grid-contacto {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
-    background-color: #ffffff; /* Esto hace que el cuadro sea blanco */
-    padding: 50px; /* Espacio interno para que no quede pegado a los bordes */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombreado elegante */
-    
-    max-width: 1000px;
-    margin: 0 auto; 
-    align-items: center; 
+    background: var(--blanco);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    align-items: center; /* <-- CAMBIADO DE start A center PARA ALINEAR VERTICALMENTE */
 }
 
-/* Contenedor izquierdo: Centra los textos y la línea amarilla */
 .info-contacto {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Alinea los elementos internos al centro horizontalmente */
-    height: 100%; 
-    align-self: center !important;
-    text-align: center; /* Centra el texto */
+    text-align: left;
 }
 
-.info-contacto h2 {
-    margin-top: 0 !important;
+.titulo-contacto {
+    text-align: left;
 }
 
-.datos-empresa { margin-top: 30px; }
-.datos-empresa p { 
-    margin-bottom: 15px; 
-    font-size: 1.1rem; 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
+.titulo-contacto::after {
+    margin: 10px 0 0 0;
 }
-.datos-empresa i { color: var(--rojo-chasqui); font-size: 1.3rem; }
 
-/* Estilos de los inputs del formulario */
-.formulario-moderno .grupo-input { margin-bottom: 20px; }
+.datos-empresa {
+    width: 100%;
+    margin-top: 20px;
+}
 
-.formulario-moderno label {
-    display: block; 
-    margin-bottom: 8px;
-    font-weight: 600; 
-    color: var(--azul-andino); 
+.datos-empresa p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.datos-empresa i {
+    color: var(--rojo-chasqui);
+}
+
+.formulario-moderno {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupo-input label {
+    font-weight: 600;
     font-size: 0.9rem;
+    color: var(--azul-andino);
 }
 
-.formulario-moderno input, .formulario-moderno textarea {
-    width: 100%; 
-    padding: 12px 15px;
-    border: 1px solid #ccc; 
-    border-radius: 10px;
-    font-family: inherit; 
-    font-size: 1rem;
-    background: var(--crema-andina); 
-    outline: none; 
-    transition: 0.3s;
+.grupo-input input,
+.grupo-input textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-/* Efecto al hacer click en una caja de texto */
-.formulario-moderno input:focus, .formulario-moderno textarea:focus { border-color: var(--oro-maiz); }
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    border-color: var(--azul-andino);
+}
+
+.error { color: red; font-size: 0.85rem; margin-top: 2px; display: block; }
+.success { color: green; font-size: 0.95rem; text-align: center; margin-top: 10px; font-weight: 600; }
+
+.desaparece { display: none !important; }
 
 /* ==========================================================================
-   11. PIE DE PÁGINA (FOOTER)
+   10. PIE DE PÁGINA (FOOTER)
    ========================================================================== */
 footer {
     background-color: var(--azul-andino);
@@ -639,91 +663,57 @@ footer {
 .footer-bottom { text-align: center; font-size: 0.9rem; opacity: 0.7; }
 
 /* ==========================================================================
-   12. DISEÑO RESPONSIVO (MEDIA QUERIES) DEFINITIVO
+   11. MEDIA QUERIES RESPONSIVAS
    ========================================================================== */
-
-/* TABLETS Y PANTALLAS MEDIANAS */
 @media (max-width: 900px) {
-    .hero-section { grid-template-columns: 1fr; text-align: center; }
-    .hero-contenido h1 { font-size: 2.4rem; }
-    .grid-3-columnas { grid-template-columns: 1fr; } 
-    .grid-contacto { grid-template-columns: 1fr; padding: 30px 20px; } 
-    .titulo-seccion, .titulo-seccion::after { margin-left: auto; margin-right: auto; text-align: center; }
-    .info-contacto { text-align: center; }
-    .info-contacto p { justify-content: center; }
+    .layout-categorias { grid-template-columns: 1fr; gap: 10px; }
+    .sidebar-categorias { display: none !important; }
+    .portada-principal { grid-template-columns: 1fr; text-align: center; }
+    .grid-contacto { grid-template-columns: 1fr; }
 }
 
-/* CELULARES (Vista Móvil Estilo Tambo) */
 @media (max-width: 768px) {
-    /* Fuerza a la navegación a comportarse en filas, NO en columnas apiladas */
     nav.nav-principal { 
         display: flex !important;
-        flex-direction: row !important; /* Fuerza a que sea horizontal */
-        flex-wrap: wrap !important;     /* Permite que el buscador caiga a la 2da línea */
+        flex-direction: row !important;
+        flex-wrap: wrap !important; 
         justify-content: space-between !important;
         align-items: center !important;
         padding: 10px 15px !important;
-        gap: 10px 0 !important; /* Ajuste estrecho de filas */
+        gap: 10px 0 !important;
     }
 
-    /* 1. Menú hamburguesa (Izquierda) */
-    .menu-hamburguesa-movil { 
-        display: block !important; 
-        order: 1 !important; /* Obligatoriamente primero */
-        width: auto !important;
-        flex: 0 0 auto !important;
-        margin: 0 !important;
-        padding: 5px !important;
+    .menu-hamburguesa-movil { display: block !important; order: 1 !important; }
+    .logo { order: 2 !important; }
+    .logo img { height: 32px !important; width: auto !important; }
+    .logo-texto { font-size: 1.1rem !important; }
+    .nav-acciones { order: 3 !important; gap: 15px !important; }
+    .buscador-nav { order: 4 !important; width: 100% !important; flex: 0 0 100% !important; margin-top: 5px !important; height: 38px !important; }
+
+    /* Ocultar el botón blanco de "Categorías" de escritorio */
+    .btn-categorias { display: none !important; }
+    .texto-accion-escritorio { display: none !important; }
+
+
+    .dropdown {
+        display: none;
+        order: 5;
+        width: 100%;
+        margin-top: 10px;
     }
 
-    /* 2. Logo (Centro) */
-    .logo { 
-        order: 2 !important; /* Obligatoriamente al medio */
-        width: auto !important;
-        flex: 0 0 auto !important;
-        margin: 0 !important;
-    }
-    
-    .logo img {
-        height: 32px !important; /* Reducimos el tamaño en celular */
-        width: auto !important;
+    .dropdown.menu-abierto {
+        display: block !important;
     }
 
-    .logo-texto { 
-        font-size: 1.1rem !important; /* Letra un poco más chica */
+    .dropdown.menu-abierto .dropdown-contenido {
+        display: block !important;
+        position: static !important;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 8px;
     }
 
-    /* 3. Iconos Mi Cuenta y Carrito (Derecha) */
-    .nav-acciones { 
-        order: 3 !important; /* Obligatoriamente a la derecha */
-        width: auto !important;
-        flex: 0 0 auto !important;
-        margin-left: 0 !important;
-        gap: 15px !important; /* Espacio compacto */
-    }
-
-    /* 4. Buscador (Ocupa toda la 2da línea abajo) */
-    .buscador-nav { 
-        order: 4 !important; /* Baja */
-        width: 100% !important; /* Toma todo el ancho horizontal */
-        flex: 0 0 100% !important;
-        margin-top: 5px !important; /* Pequeño margen superior */
-        height: 38px !important; /* Un poco más bajo para celular */
-    }
-
-    .buscador-nav input {
-        font-size: 0.85rem !important; /* Letra de búsqueda un poco más pequeña */
-    }
-
-    /* Ocultamos elementos innecesarios */
-    .dropdown { display: none !important; } /* Ocultamos Categorías*/
-    .texto-accion-escritorio { display: none !important; } /* Oculta "Mi Cuenta" */
-
-    /* Resto de la Adaptación Móvil */
-    .layout-categorias { grid-template-columns: 1fr; gap: 10px; }
-    .sidebar-categorias { display: none !important; }
-
-    /* Productos a 2 Columnas */
     .grid-productos { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
     .contenedor-img-producto { height: 120px !important; padding: 8px !important; }
     .info-producto { padding: 0 8px 8px 8px !important; }
@@ -735,7 +725,151 @@ footer {
     .btn-rojo { padding: 6px !important; font-size: 0.75rem !important; }
     .footer-grid { flex-direction: column; gap: 20px; text-align: center; }
 }
+/* ==========================================================================
+   12. CARRITO LATERAL, MI CUENTA Y NOTIFICACIONES (generados con JavaScript)
+   ========================================================================== */
+button.btn-principal { border: none; cursor: pointer; font-family: inherit; font-size: 1rem; }
 
-@media (max-width: 400px) {
-    .grid-productos { grid-template-columns: repeat(2, 1fr) !important; gap: 5px !important; }
+.overlay-chaski {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1500;
+}
+.overlay-chaski.visible { opacity: 1; visibility: visible; }
+
+.btn-cerrar {
+    background: transparent; border: none; cursor: pointer;
+    font-size: 2rem; line-height: 1; color: var(--azul-andino);
+    transition: transform 0.3s, color 0.3s;
+}
+.btn-cerrar:hover { color: var(--rojo-chasqui); transform: rotate(90deg); }
+
+.btn-vaciar {
+    background: transparent; border: none; cursor: pointer;
+    color: #888; font-family: inherit; font-size: 0.9rem;
+    margin-top: 10px; width: 100%; text-decoration: underline;
+}
+.btn-vaciar:hover { color: var(--rojo-chasqui); }
+
+/* ----- Panel del carrito (entra desde la derecha) ----- */
+.carrito-panel {
+    position: fixed; top: 0; right: 0;
+    width: 400px; max-width: 100%; height: 100%;
+    background: var(--blanco);
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 1600;
+    box-shadow: -6px 0 25px rgba(0,0,0,0.2);
+}
+.carrito-panel.abierto { transform: translateX(0); }
+
+.panel-cabecera {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 20px; background: var(--azul-andino); color: var(--blanco);
+}
+.panel-cabecera h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+.panel-cabecera .btn-cerrar { color: var(--blanco); }
+
+.panel-cuerpo { flex: 1; overflow-y: auto; padding: 15px 20px; }
+
+.carrito-vacio { text-align: center; color: #999; padding: 60px 10px; }
+.carrito-vacio i { font-size: 3rem; color: var(--oro-maiz); margin-bottom: 15px; }
+
+.carrito-item {
+    display: flex; gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--crema-andina);
+    animation: aparecerItem 0.3s ease;
+}
+.carrito-item img {
+    width: 70px; height: 70px; object-fit: contain;
+    background: var(--crema-andina); border-radius: 8px; padding: 4px;
+}
+.carrito-item-info { display: flex; flex-direction: column; flex: 1; }
+.carrito-item-marca { font-size: 0.7rem; font-weight: 700; color: #888; text-transform: uppercase; }
+.carrito-item-info h4 { font-size: 0.9rem; line-height: 1.3; color: var(--carbon-calido); }
+.carrito-item-precio { color: var(--rojo-chasqui); font-weight: 700; margin: 3px 0; }
+
+.carrito-item-controles { display: flex; align-items: center; gap: 8px; }
+.carrito-item-controles button {
+    width: 26px; height: 26px; border-radius: 6px; cursor: pointer;
+    border: 1px solid #ccc; background: var(--crema-andina);
+    color: var(--azul-andino); font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.carrito-item-controles button:hover { background: var(--oro-maiz); transform: scale(1.1); }
+.carrito-item-controles .btn-quitar { margin-left: auto; background: transparent; border: none; color: #aaa; }
+.carrito-item-controles .btn-quitar:hover { color: var(--rojo-chasqui); background: transparent; }
+.carrito-item-cant { min-width: 22px; text-align: center; font-weight: 600; }
+
+.panel-pie { padding: 18px 20px; border-top: 1px solid #eee; background: var(--crema-andina); }
+.carrito-total {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 1.1rem; margin-bottom: 14px; color: var(--azul-andino);
+}
+.carrito-total strong { font-size: 1.5rem; color: var(--rojo-chasqui); }
+
+@keyframes aparecerItem {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----- Ventana Mi Cuenta (aparece con zoom) ----- */
+.modal-cuenta {
+    position: fixed; inset: 0;
+    display: flex; justify-content: center; align-items: center;
+    padding: 15px;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1700;
+}
+.modal-cuenta.abierto { opacity: 1; visibility: visible; pointer-events: auto; }
+
+.modal-caja {
+    position: relative; background: var(--blanco);
+    width: 100%; max-width: 400px; padding: 30px;
+    border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+.modal-cuenta.abierto .modal-caja { transform: scale(1); }
+.modal-caja > .btn-cerrar { position: absolute; top: 10px; right: 15px; }
+
+.cuenta-tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid var(--crema-andina); }
+.cuenta-tab {
+    flex: 1; padding: 10px; background: transparent; border: none;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    font-family: inherit; font-weight: 600; font-size: 0.95rem;
+    color: #888; cursor: pointer; transition: color 0.3s, border-color 0.3s;
+}
+.cuenta-tab:hover { color: var(--azul-andino); }
+.cuenta-tab.activa { color: var(--rojo-chasqui); border-bottom-color: var(--rojo-chasqui); }
+
+.perfil-avatar { text-align: center; font-size: 4rem; color: var(--azul-andino); }
+.perfil-nombre { text-align: center; color: var(--azul-andino); margin: 5px 0; }
+.perfil-correo { text-align: center; color: #888; font-size: 0.9rem; }
+.perfil-resumen { text-align: center; margin: 15px 0 20px; font-size: 0.95rem; }
+
+/* ----- Notificación emergente ----- */
+.toast-chaski {
+    position: fixed; bottom: 25px; left: 50%;
+    transform: translate(-50%, 100px);
+    background: var(--verde-coca); color: var(--blanco);
+    padding: 12px 22px; border-radius: 30px;
+    font-weight: 500; font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 2000; max-width: 90%; text-align: center;
+}
+.toast-chaski.toast-error { background: var(--rojo-chasqui); }
+.toast-chaski.mostrar { transform: translate(-50%, 0); opacity: 1; }
+
+/* Pequeño "rebote" del contador cuando agregas algo */
+.contador-carrito { transition: transform 0.2s; }
+.icono-accion:hover .contador-carrito { transform: scale(1.15); }
+
+@media (max-width: 768px) {
+    .carrito-panel { width: 100%; }
 }

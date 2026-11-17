@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>limpieza - Chaski Market</title>
+    <title>Limpieza - Chaski Market</title>
     
     <!-- Favicon -->
     <link rel="icon" href="Imagenes/Logo/logo-icono.svg" type="image/svg+xml">
@@ -21,8 +21,8 @@
          BARRA DE NAVEGACIÓN DEFINITIVA (Responsiva)
          ========================================================= -->
     <nav class="nav-principal">
-        <!-- 1. Menú Hamburguesa (Solo celular) -->
-        <button class="menu-hamburguesa-movil">
+        <!-- 1. Menú Hamburguesa (Celular) con la función JS requerida -->
+        <button class="menu-hamburguesa-movil" onclick="accion()">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -36,9 +36,9 @@
             </a>
         </div>
 
-        <!-- 3. Botón Categorías (Solo PC) -->
-        <div class="dropdown">
-            <a href="#" class="nav-enlace btn-categorias">
+        <!-- 3. Botón Categorías (Con clase nav-enlace para el toggle responsivo) -->
+        <div class="dropdown nav-enlace">
+            <a href="#" class="btn-categorias">
                 <i class="fa-solid fa-bars"></i> Categorías
             </a>
             <div class="dropdown-contenido">
@@ -51,22 +51,22 @@
             </div>
         </div>
 
-        <!-- 4. Barra de Búsqueda -->
+        <!-- 4. Barra de Búsqueda con ID para el filtrado en vivo -->
         <div class="buscador-nav">
-            <input type="text" placeholder="¿Qué estás buscando hoy?">
+            <input type="text" id="searchInput" placeholder="¿Qué estás buscando hoy?">
             <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-        <!-- 5. Iconos de Acción (Login y Carrito) -->
+        <!-- 5. Iconos de Acción (Login y Carrito con contador dinámico) -->
         <div class="nav-acciones">
-            <a href="#" class="icono-accion" title="Iniciar Sesión / Mi Cuenta">
+            <a href="#" class="icono-accion nav-enlace" title="Iniciar Sesión / Mi Cuenta">
                 <i class="fa-regular fa-user"></i>
                 <span class="texto-accion-escritorio">Mi Cuenta</span>
             </a>
             
             <a href="#" class="icono-accion btn-carrito" title="Ver Carrito">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span class="contador-carrito">0</span>
+                <span class="contador-carrito" id="cartCount">0</span>
             </a>
         </div>
     </nav>
@@ -81,10 +81,10 @@
         <aside class="sidebar-categorias">
             <h3>Categorías</h3>
             <ul class="lista-categorias">
-                <!-- La clase "activo" resalta esta página en rojo -->
                 <li><a href="abarrotes.html"><i class="fa-solid fa-wheat-awn"></i> Abarrotes</a></li>
-                <li><a href="lacteos.html" ><i class="fa-solid fa-cheese"></i> Lácteos y Embutidos</a></li>
+                <li><a href="lacteos.html"><i class="fa-solid fa-cheese"></i> Lácteos y Embutidos</a></li>
                 <li><a href="bebidas.html"><i class="fa-solid fa-bottle-water"></i> Bebidas y Licores</a></li>
+                <!-- La clase "activo" resalta correctamente esta página en rojo -->
                 <li><a href="limpieza.html" class="activo"><i class="fa-solid fa-spray-can-sparkles"></i> Limpieza del Hogar</a></li>
                 <li><a href="frutas.html"><i class="fa-solid fa-apple-whole"></i> Frutas y Verduras</a></li>
                 <li><a href="conservas.html"><i class="fa-solid fa-jar"></i> Conservas</a></li>
@@ -96,11 +96,11 @@
             <h1 class="titulo-seccion" style="margin-top: 0;">Limpieza del Hogar</h1>
             <p class="parrafo">Todo lo que necesitas para mantener tu casa impecable.</p>
             
-            <div class="grid-productos">
+            <div class="grid-productos" id="productGrid">
                 <!-- Producto 1 -->
                 <div class="tarjeta-producto">
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/Ace.jpg" alt=""/>
+                        <img src="Imagenes/Productos/Ace.jpg" alt="Detergente en Polvo Floral Ace"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">ACE</p>
@@ -110,18 +110,18 @@
                             <span class="precio">S/ 8.20</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
 
                 <!-- Producto 2 -->
                 <div class="tarjeta-producto">
                     <div class="contenedor-img-producto">
-                        <img src="Imagenes/Productos/AYUDIN.jpg" alt=""/>
+                        <img src="Imagenes/Productos/AYUDIN.jpg" alt="Lavavajillas Líquido Limón Ayudín"/>
                     </div>
                     <div class="info-producto">
                         <p class="marca-producto">AYUDÍN</p>
@@ -131,11 +131,11 @@
                             <span class="precio">S/ 5.40</span>
                         </div>
                         <div class="controles-cantidad">
-                            <button type="button" class="btn-cantidad">-</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
                             <input type="text" value="1" readonly class="input-cantidad">
-                            <button type="button" class="btn-cantidad">+</button>
+                            <button type="button" class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
                         </div>
-                        <button class="btn-rojo"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="btn-rojo" onclick="agregarAlCarrito(this)"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                     </div>
                 </div>
             </div>
@@ -153,9 +153,10 @@
                 <p>Calidad y frescura cerca de ti.</p>
             </div>
             <div class="footer-social">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/51987654321" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -163,5 +164,7 @@
         </div>
     </footer>
 
+    <!-- Archivo JavaScript Externo -->
+    <script src="js/script.js" type="text/javascript"></script>
 </body>
 </html>
